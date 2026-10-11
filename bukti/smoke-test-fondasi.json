@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-11T05:59:24.959777+00:00",
+  "fase": "M0 Fondasi (Fase 2)",
+  "openrouter": {
+    "chat_model": "meta-llama/llama-3.1-8b-instruct",
+    "embedding_model": "openai/text-embedding-3-small",
+    "chat_smoke": {
+      "status": "skipped",
+      "reason": "OPENROUTER_API_KEY belum dikonfigurasi di .env",
+      "model": "meta-llama/llama-3.1-8b-instruct"
+    },
+    "embedding_smoke": {
+      "status": "skipped",
+      "reason": "OPENROUTER_API_KEY belum dikonfigurasi di .env",
+      "model": "openai/text-embedding-3-small"
+    }
+  },
+  "mysql": {
+    "status": "failed",
+    "host": "localhost",
+    "port": 3306,
+    "database": "knowdesk_ai",
+    "error": "(2003, \"Can't connect to MySQL server on 'localhost'\")",
+    "error_type": "OperationalError",
+    "latency_ms": 4100
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "_keterangan": "Tarif model resmi OpenRouter per 1M token (dan kalkulasi per 1k / per token). Diperbarui dari https://openrouter.ai/models.",
+  "tanggal_pengambilan": "2026-10-11",
+  "mata_uang": "USD",
+  "models": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "tipe": "chat",
+      "biaya_input_per_1m": 0.055,
+      "biaya_output_per_1m": 0.055,
+      "biaya_input_per_1k": 0.000055,
+      "biaya_output_per_1k": 0.000055,
+      "biaya_input_per_token": 0.000000055,
+      "biaya_output_per_token": 0.000000055
+    },
+    "openai/text-embedding-3-small": {
+      "tipe": "embedding",
+      "biaya_input_per_1m": 0.02,
+      "biaya_output_per_1m": 0.0,
+      "biaya_input_per_1k": 0.00002,
+      "biaya_output_per_1k": 0.0,
+      "biaya_input_per_token": 0.00000002,
+      "biaya_output_per_token": 0.0
+    },
+    "meta-llama/llama-3.3-70b-instruct": {
+      "tipe": "chat",
+      "biaya_input_per_1m": 0.40,
+      "biaya_output_per_1m": 0.40,
+      "biaya_input_per_1k": 0.0004,
+      "biaya_output_per_1k": 0.0004,
+      "biaya_input_per_token": 0.0000004,
+      "biaya_output_per_token": 0.0000004
+    }
+  }
+}
