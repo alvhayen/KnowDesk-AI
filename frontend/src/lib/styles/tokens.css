@@ -1,0 +1,58 @@
+/* KnowDesk · design tokens v1 · tema: Arsip Pinus
+ * genre: utilitarian app (turunan aturan Hallmark) · paper hue 100 · accent hue 160 · light only
+ * Satu-satunya berkas yang boleh memuat warna/font mentah.
+ */
+@theme static {
+  --color-paper:         oklch(97.5% 0.010 100);
+  --color-paper-2:       oklch(94.5% 0.013 100);
+  --color-surface:       oklch(99%   0.006 100);
+  --color-rule:          oklch(87%   0.012 100);
+  --color-rule-strong:   oklch(76%   0.014 100);
+  --color-muted:         oklch(46%   0.012 100);
+  --color-ink:           oklch(21%   0.012 100);
+
+  --color-accent:        oklch(44%   0.105 160);
+  --color-accent-hover:  oklch(38%   0.105 160);
+  --color-accent-soft:   oklch(93.5% 0.030 160);
+  --color-on-accent:     oklch(97.5% 0.010 100);
+  --color-focus:         oklch(50%   0.140 160);
+
+  --color-warn:          oklch(46%   0.110 70);
+  --color-warn-soft:     oklch(94.5% 0.050 85);
+  --color-danger:        oklch(48%   0.160 27);
+  --color-danger-soft:   oklch(95%   0.030 27);
+
+  --font-display: "Schibsted Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Onest Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "Spline Sans Mono Variable", ui-monospace, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-pop: 0 4px 12px oklch(21% 0.012 100 / 0.14);
+
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.5625rem;
+  --text-xl:   1.9531rem;
+}
+
+:root {
+  color-scheme: light;
+
+  --space-2xs: 4px;  --space-xs: 8px;   --space-sm: 12px; --space-md: 16px;
+  --space-lg: 24px;  --space-xl: 32px;  --space-2xl: 48px; --space-3xl: 64px;
+
+  --dur-fast: 100ms; --dur-short: 160ms; --dur-med: 240ms;
+
+  --measure: 65ch;
+  --chat-max: 46rem;
+  --panel-w: 20rem;
+  --header-h: 3.5rem;
+
+  --z-base: 0; --z-sticky: 10; --z-popover: 20; --z-toast: 30;
+}

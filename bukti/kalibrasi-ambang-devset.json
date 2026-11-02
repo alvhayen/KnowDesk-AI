@@ -1,0 +1,370 @@
+{
+  "timestamp": "2026-10-11T10:56:33.255993+00:00",
+  "dev_set_size": 20,
+  "rekomendasi": {
+    "RAG_MIN_COSINE": 0.25,
+    "RAG_HIGH_COSINE": 0.4,
+    "alasan": "Ambang 0.25 memberikan 0 FP pada kueri out-of-scope (kondisi aman per §6.4), dengan recall 0.70."
+  },
+  "distribusi_skor": {
+    "relevan": {
+      "min": 0.152,
+      "max": 0.397,
+      "mean": 0.3058,
+      "median": 0.3343
+    },
+    "ambigu": {
+      "min": 0.1442,
+      "max": 0.2717,
+      "mean": 0.2003
+    },
+    "out_of_scope": {
+      "min": 0.0914,
+      "max": 0.2058,
+      "mean": 0.1557
+    }
+  },
+  "grid_scan": [
+    {
+      "threshold": 0.25,
+      "tp_relevan": 7,
+      "fn_relevan": 3,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 1,
+      "precision_vs_oos": 1.0,
+      "recall": 0.7,
+      "f1_score": 0.8235
+    },
+    {
+      "threshold": 0.3,
+      "tp_relevan": 6,
+      "fn_relevan": 4,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 1.0,
+      "recall": 0.6,
+      "f1_score": 0.75
+    },
+    {
+      "threshold": 0.35,
+      "tp_relevan": 4,
+      "fn_relevan": 6,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 1.0,
+      "recall": 0.4,
+      "f1_score": 0.5714
+    },
+    {
+      "threshold": 0.4,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    {
+      "threshold": 0.45,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    {
+      "threshold": 0.5,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    {
+      "threshold": 0.55,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    {
+      "threshold": 0.6,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    },
+    {
+      "threshold": 0.65,
+      "tp_relevan": 0,
+      "fn_relevan": 10,
+      "fp_out_of_scope": 0,
+      "tn_out_of_scope": 5,
+      "fp_ambigu": 0,
+      "precision_vs_oos": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0
+    }
+  ],
+  "detail_kueri": [
+    {
+      "id": "DEV-01",
+      "kategori": "relevan",
+      "kueri": "Sinyal nirkabel laptop mendadak putus nyambung di ruang rapat",
+      "target_article": "KB-001",
+      "top1_score": 0.2194,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi Masalah Teams serta Ms Outlook",
+      "is_correct_article": false,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-02",
+      "kategori": "relevan",
+      "kueri": "Lupa kata sandi surel kantor dan akun terblokir setelah salah ketik",
+      "target_article": "KB-002",
+      "top1_score": 0.3627,
+      "top1_article": "KB-002",
+      "top1_chunk_id": "KB-002-chunk-1",
+      "top1_section": "Bagian 1: Gambaran Umum Kebijakan Password Email",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-03",
+      "kategori": "relevan",
+      "kueri": "Tidak bisa tunneling akses jarak jauh dari rumah",
+      "target_article": "KB-003",
+      "top1_score": 0.152,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-2",
+      "top1_section": "Bagian 2: Tindakan Awal dan Pengecekan Jaringan",
+      "is_correct_article": false,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-04",
+      "kategori": "relevan",
+      "kueri": "Mesin cetak tidak merespons dan dokumen tertahan di antrean print spooler",
+      "target_article": "KB-004",
+      "top1_score": 0.3913,
+      "top1_article": "KB-004",
+      "top1_chunk_id": "KB-004-chunk-2",
+      "top1_section": "Bagian 2: Gejala Umum Masalah Cetak Dokumen",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-05",
+      "kategori": "relevan",
+      "kueri": "Panggilan rapat daring di aplikasi obrolan tidak mendeteksi mikrofon dan kamera",
+      "target_article": "KB-005",
+      "top1_score": 0.397,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi Masalah Teams serta Ms Outlook",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-06",
+      "kategori": "relevan",
+      "kueri": "Muncul notifikasi izin ditolak saat ingin membuka folder arsip bersama di drive jaringan",
+      "target_article": "KB-006",
+      "top1_score": 0.2917,
+      "top1_article": "KB-006",
+      "top1_chunk_id": "KB-006-chunk-2",
+      "top1_section": "Bagian 2: Gejala Galat Akses Folder Bersama",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-07",
+      "kategori": "relevan",
+      "kueri": "Kode verifikasi dua langkah tidak kunjung masuk ke ponsel saat login SSO",
+      "target_article": "KB-007",
+      "top1_score": 0.3288,
+      "top1_article": "KB-007",
+      "top1_chunk_id": "KB-007-chunk-2",
+      "top1_section": "Bagian 2: Kendala Umum Penggunaan Autentikasi 2FA",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-08",
+      "kategori": "relevan",
+      "kueri": "Sistem FinOps akuntansi kantor memunculkan error session expired saat input transaksi",
+      "target_article": "KB-008",
+      "top1_score": 0.2099,
+      "top1_article": "KB-008",
+      "top1_chunk_id": "KB-008-chunk-2",
+      "top1_section": "Bagian 2: Error yang Sering Terjadi di Modul Kas dan Inventori",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-09",
+      "kategori": "relevan",
+      "kueri": "Komputer mendapatkan alamat IP 169.254 saat terhubung ke access point lantai dua",
+      "target_article": "KB-001",
+      "top1_score": 0.3398,
+      "top1_article": "KB-001",
+      "top1_chunk_id": "KB-001-chunk-4",
+      "top1_section": "Bagian 4: Kapan Harus Menghubungi Teknisi IT",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-10",
+      "kategori": "relevan",
+      "kueri": "Surel kantor di outlook menampilkan status disconnected dan tidak bisa kirim pesan",
+      "target_article": "KB-005",
+      "top1_score": 0.3654,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi Masalah Teams serta Ms Outlook",
+      "is_correct_article": true,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-11",
+      "kategori": "ambigu",
+      "kueri": "Komputer kantor saya bermasalah dan tidak bisa dipakai kerja",
+      "target_article": null,
+      "top1_score": 0.1857,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi Masalah Teams serta Ms Outlook",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-12",
+      "kategori": "ambigu",
+      "kueri": "Aplikasi mendadak error saat dibuka",
+      "target_article": null,
+      "top1_score": 0.2717,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi Masalah Teams serta Ms Outlook",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-13",
+      "kategori": "ambigu",
+      "kueri": "Ada kendala teknis di laptop saya",
+      "target_article": null,
+      "top1_score": 0.1993,
+      "top1_article": "KB-007",
+      "top1_chunk_id": "KB-007-chunk-2",
+      "top1_section": "Bagian 2: Kendala Umum Penggunaan Autentikasi 2FA",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-14",
+      "kategori": "ambigu",
+      "kueri": "Sistem kantor tidak merespons sama sekali",
+      "target_article": null,
+      "top1_score": 0.2006,
+      "top1_article": "KB-005",
+      "top1_chunk_id": "KB-005-chunk-2",
+      "top1_section": "Bagian 2: Tindakan Awal dan Pengecekan Jaringan",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-15",
+      "kategori": "ambigu",
+      "kueri": "Tolong bantu perbaiki perangkat kerja saya",
+      "target_article": null,
+      "top1_score": 0.1442,
+      "top1_article": "KB-001",
+      "top1_chunk_id": "KB-001-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi dan Gejala Umum Masalah Wi-Fi",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-16",
+      "kategori": "out_of_scope",
+      "kueri": "Bagaimana prosedur klaim penggantian oli mobil dinas operasional kantor?",
+      "target_article": null,
+      "top1_score": 0.0914,
+      "top1_article": "KB-006",
+      "top1_chunk_id": "KB-006-chunk-1",
+      "top1_section": "Bagian 1: Kebijakan Penyimpanan Data di Shared Drive",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-17",
+      "kategori": "out_of_scope",
+      "kueri": "Saya ingin memesan tiket pesawat dan hotel untuk perjalanan dinas ke Surabaya",
+      "target_article": null,
+      "top1_score": 0.1812,
+      "top1_article": "KB-001",
+      "top1_chunk_id": "KB-001-chunk-2",
+      "top1_section": "Bagian 2: Pemeriksaan Fisik dan Pengaturan Dasar Perangkat",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-18",
+      "kategori": "out_of_scope",
+      "kueri": "Bagaimana cara pengajuan cuti tahunan dan izin sakit di portal HRD?",
+      "target_article": null,
+      "top1_score": 0.2058,
+      "top1_article": "KB-006",
+      "top1_chunk_id": "KB-006-chunk-3",
+      "top1_section": "Bagian 3: Langkah Pemetaan dan Pemeriksaan Akses Drive",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-19",
+      "kategori": "out_of_scope",
+      "kueri": "Apakah ada rekomendasi catering makan siang yang higienis untuk rapat divisi?",
+      "target_article": null,
+      "top1_score": 0.1825,
+      "top1_article": "KB-001",
+      "top1_chunk_id": "KB-001-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi dan Gejala Umum Masalah Wi-Fi",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    },
+    {
+      "id": "DEV-20",
+      "kategori": "out_of_scope",
+      "kueri": "Berapa anggaran pengadaan meja kerja baru untuk divisi pemasaran?",
+      "target_article": null,
+      "top1_score": 0.1177,
+      "top1_article": "KB-001",
+      "top1_chunk_id": "KB-001-chunk-1",
+      "top1_section": "Bagian 1: Deskripsi dan Gejala Umum Masalah Wi-Fi",
+      "is_correct_article": null,
+      "embedding_provider": "local_k15"
+    }
+  ]
+}

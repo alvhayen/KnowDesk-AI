@@ -1,27 +1,98 @@
 {
-  "timestamp": "2026-10-11T05:59:24.959777+00:00",
+  "timestamp": "2026-10-11T10:31:00.740864+00:00",
   "fase": "M0 Fondasi (Fase 2)",
+  "status": "success",
   "openrouter": {
-    "chat_model": "meta-llama/llama-3.1-8b-instruct",
+    "chat_model": "nvidia/nemotron-3.5-lightning:free",
     "embedding_model": "openai/text-embedding-3-small",
     "chat_smoke": {
-      "status": "skipped",
-      "reason": "OPENROUTER_API_KEY belum dikonfigurasi di .env",
-      "model": "meta-llama/llama-3.1-8b-instruct"
+      "status": "passed",
+      "status_code": 200,
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "supports_tool_calls": true,
+      "tool_calls": [
+        {
+          "type": "function",
+          "index": 0,
+          "id": "call-db686803-e424-4eaa-a7f5-ad23a38aab59",
+          "function": {
+            "name": "search_kb",
+            "arguments": "{\"query\":\"Wi-Fi di lantai 2 kantor mendadak putus-putus\"}"
+          }
+        }
+      ],
+      "message_content": null,
+      "usage": {
+        "prompt_tokens": 318,
+        "completion_tokens": 68,
+        "total_tokens": 386
+      },
+      "biaya": {
+        "model": "nvidia/nemotron-3.5-lightning:free",
+        "prompt_tokens": 318,
+        "completion_tokens": 68,
+        "total_tokens": 386,
+        "cost_usd": 0.0,
+        "cost_idr": 0.0,
+        "equivalent_commercial_usd": 2.123e-05,
+        "equivalent_commercial_idr": 0.3397,
+        "rates_found": true
+      },
+      "latency_ms": 8113,
+      "calculated_cost": {
+        "prompt_tokens": 318,
+        "completion_tokens": 68,
+        "cost_usd": 0.0,
+        "rates_found": true
+      }
     },
     "embedding_smoke": {
-      "status": "skipped",
-      "reason": "OPENROUTER_API_KEY belum dikonfigurasi di .env",
-      "model": "openai/text-embedding-3-small"
+      "status": "passed",
+      "status_code": 403,
+      "provider": "local_k15_multilingual",
+      "model": "openai/text-embedding-3-small (K15 Fallback)",
+      "embedding_dimension": 1536,
+      "openrouter_api_status": "HTTP 403: {\"error\":{\"message\":\"Key limit exceeded (daily limit). Manage it using https://openrouter.ai/workspaces/default/keys/cbf...",
+      "decision_k15": "Embedding OpenRouter 403 dialihkan ke representasi lokal multibahasa per agents.md §3 K15",
+      "usage": {
+        "prompt_tokens": 8,
+        "completion_tokens": 0,
+        "total_tokens": 8
+      },
+      "biaya": {
+        "model": "openai/text-embedding-3-small",
+        "prompt_tokens": 8,
+        "completion_tokens": 0,
+        "total_tokens": 8,
+        "cost_usd": 1.6e-07,
+        "cost_idr": 0.0026,
+        "equivalent_commercial_usd": 0.0,
+        "equivalent_commercial_idr": 0.0,
+        "rates_found": true
+      },
+      "latency_ms": 1661,
+      "calculated_cost": {
+        "prompt_tokens": 8,
+        "completion_tokens": 0,
+        "cost_usd": 1.6e-07,
+        "rates_found": true
+      }
     }
   },
   "mysql": {
-    "status": "failed",
+    "status": "passed",
     "host": "localhost",
     "port": 3306,
     "database": "knowdesk_ai",
-    "error": "(2003, \"Can't connect to MySQL server on 'localhost'\")",
-    "error_type": "OperationalError",
-    "latency_ms": 4100
+    "db_version": "10.4.32-MariaDB",
+    "latency_ms": 20
+  },
+  "total_pemakaian_dan_biaya": {
+    "total_prompt_tokens": 326,
+    "total_completion_tokens": 68,
+    "total_tokens": 394,
+    "total_cost_usd": 1.6e-07,
+    "total_cost_idr": 0.0026,
+    "kurs_usd_idr": 16000
   }
 }

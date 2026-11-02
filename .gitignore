@@ -6,6 +6,17 @@
 *.key
 *.cert
 *.pfx
+credentials.json
+token.json
+secrets/
+.secrets
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+
 
 # Python
 __pycache__/
@@ -19,8 +30,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
 parts/
 sdist/
 var/

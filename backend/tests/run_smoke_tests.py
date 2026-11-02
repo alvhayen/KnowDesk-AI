@@ -80,10 +80,23 @@ async def run_all_smoke_tests():
     print("-> Menguji MySQL Async Connectivity (aiomysql)...")
     mysql_result = await execute_mysql_smoke(settings)
 
+    # Hitung total token dan biaya gabungan
+    chat_usage = chat_result.get("usage", {})
+    embed_usage = embed_result.get("usage", {})
+    total_prompt_tokens = (chat_usage.get("prompt_tokens") or 0) + (embed_usage.get("prompt_tokens") or 0)
+    total_comp_tokens = (chat_usage.get("completion_tokens") or 0) + (embed_usage.get("completion_tokens") or 0)
+    total_tokens = total_prompt_tokens + total_comp_tokens
+
+    chat_cost = chat_result.get("biaya", {})
+    embed_cost = embed_result.get("biaya", {})
+    total_cost_usd = round(chat_cost.get("cost_usd", 0.0) + embed_cost.get("cost_usd", 0.0), 8)
+    total_cost_idr = round(chat_cost.get("cost_idr", 0.0) + embed_cost.get("cost_idr", 0.0), 4)
+
     # Susun Laporan Bukti
     evidence_data = {
         "timestamp": timestamp,
         "fase": "M0 Fondasi (Fase 2)",
+        "status": "success" if chat_result.get("status") == "passed" and mysql_result.get("status") == "passed" else "failed",
         "openrouter": {
             "chat_model": settings.CHAT_MODEL,
             "embedding_model": settings.EMBEDDING_MODEL,
@@ -91,6 +104,14 @@ async def run_all_smoke_tests():
             "embedding_smoke": embed_result,
         },
         "mysql": mysql_result,
+        "total_pemakaian_dan_biaya": {
+            "total_prompt_tokens": total_prompt_tokens,
+            "total_completion_tokens": total_comp_tokens,
+            "total_tokens": total_tokens,
+            "total_cost_usd": total_cost_usd,
+            "total_cost_idr": total_cost_idr,
+            "kurs_usd_idr": 16000,
+        },
     }
 
     # Simpan ke bukti/smoke-test-fondasi.json

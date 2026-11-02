@@ -29,6 +29,17 @@
       "biaya_output_per_1k": 0.0004,
       "biaya_input_per_token": 0.0000004,
       "biaya_output_per_token": 0.0000004
+    },
+    "nvidia/nemotron-3.5-lightning:free": {
+      "tipe": "chat",
+      "biaya_input_per_1m": 0.0,
+      "biaya_output_per_1m": 0.0,
+      "biaya_input_per_1k": 0.0,
+      "biaya_output_per_1k": 0.0,
+      "biaya_input_per_token": 0.0,
+      "biaya_output_per_token": 0.0,
+      "biaya_komersial_ekuivalen_per_1m": 0.055
     }
-  }
+  },
+  "kurs_usd_idr": 16000
 }

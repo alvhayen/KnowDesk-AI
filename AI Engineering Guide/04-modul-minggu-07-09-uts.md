@@ -213,14 +213,14 @@ Delapan slide, satu untuk masing-masing:
 
 | # | Slide | Yang harus terjawab |
 |---|---|---|
-| 1 | Persoalan | Siapa yang mengalaminya, bagaimana diselesaikan sekarang, mengapa tidak memadai |
+| 1 | Persoalan | Siapa yang mengalaminya, bagaimana diselesaikan sekarang, mengapa belum cukup |
 | 2 | Mengapa AI generatif | Dan mengapa bukan basis data, formulir, atau aturan biasa |
-| 3 | Rancangan sistem | Alur dari masukan sampai keluaran, dalam satu gambar |
-| 4 | Kendali keluaran | Skema, nilai sah, penanganan keluaran tak sah |
-| 5 | Tool | Daftar, batas kewenangan, apa yang butuh persetujuan manusia |
-| 6 | Grounding | Dokumen rujukan, chunking, retrieval, perilaku kalau tak ditemukan |
-| 7 | Bukti sejauh ini | Satu keberhasilan **dan satu kegagalan** yang Anda temukan sendiri |
-| 8 | Risiko dan rencana | Apa yang paling mungkin salah, dan apa rencana Minggu 9–16 |
+| 3 | Rancangan sistem | Alur dari input sampai output, dalam satu gambar |
+| 4 | Kendali keluaran | Schema, nilai valid, penanganan output yang tidak valid |
+| 5 | Tool | Daftar tool, batas akses, apa yang butuh persetujuan manusia |
+| 6 | Grounding | Dokumen rujukan, chunking, retrieval, apa yang terjadi kalau jawaban tidak ditemukan |
+| 7 | Bukti sejauh ini | Satu keberhasilan dan satu kegagalan yang ditemukan sendiri |
+| 8 | Risiko dan rencana | Apa yang paling mungkin salah, dan rencana Minggu 9–16 |
 
 Slide 7 diperiksa dengan saksama, dan di sinilah aspek "kejujuran pengujian" dinilai. Isinya harus kegagalan yang Anda temukan sendiri — bukan kegagalan yang baru ketahuan saat ditanya. Kalau slide ini terasa sulit diisi, itu tanda pengujiannya yang perlu diperluas, bukan tanda sistem Anda sudah sempurna.
 

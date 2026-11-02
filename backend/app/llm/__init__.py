@@ -1,0 +1,5 @@
+"""LLM client package for KnowDesk AI."""
+
+from app.llm.client import LLMClient, LLMResponse
+
+__all__ = ["LLMClient", "LLMResponse"]

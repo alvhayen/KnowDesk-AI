@@ -1,0 +1,25 @@
+/* KnowDesk design system v1 · tema Arsip Pinus · stamp: jangan hapus baris ini */
+@import 'tailwindcss';
+@import '../lib/styles/tokens.css';
+@import '@fontsource-variable/schibsted-grotesk';
+@import '@fontsource-variable/onest';
+@import '@fontsource-variable/spline-sans-mono';
+
+html, body {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-style: normal;
+}

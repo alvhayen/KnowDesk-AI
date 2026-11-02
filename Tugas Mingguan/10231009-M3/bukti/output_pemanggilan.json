@@ -1,0 +1,13 @@
+{
+  "model": "google/gemini-2.0-flash-exp:free",
+  "latency_ms": 412.35,
+  "content": "Tekan tombol Windows + P pada keyboard Anda, lalu pilih opsi 'Duplicate' atau 'Extend' untuk memastikan sinyal tampilan terkirim ke proyektor. Jika layar masih gelap, periksa apakah kabel HDMI atau konverter tertancap rapat di port laptop Anda.",
+  "prompt_tokens": 86,
+  "completion_tokens": 58,
+  "total_tokens": 144,
+  "estimated_cost_idr": 0.452,
+  "status": "success",
+  "gateway_provider": "OpenRouter",
+  "auth_type": "Bearer (Masked)",
+  "timestamp": "2026-10-12T10:15:30Z"
+}

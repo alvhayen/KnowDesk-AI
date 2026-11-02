@@ -1,0 +1,484 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "KnowDesk AI API",
+    "description": "Sistem Bantuan Mandiri IT Agentik untuk Staf Perusahaan",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/chat": {
+      "post": {
+        "tags": [
+          "Chat & Tickets"
+        ],
+        "summary": "Kirim pesan pengguna ke orchestrator agen",
+        "description": "Memproses pesan percakapan pengguna dan mengembalikan respons bantuan agen.",
+        "operationId": "chat_endpoint_api_chat_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ticket/confirm": {
+      "post": {
+        "tags": [
+          "Chat & Tickets"
+        ],
+        "summary": "Konfirmasi pengiriman atau pembatalan draf tiket (Satu Jalur Sah R4 & K4)",
+        "description": "Mengonfirmasi atau membatalkan draf tiket eskalasi ke teknisi IT.",
+        "operationId": "confirm_ticket_endpoint_api_ticket_confirm_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TicketConfirmRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/session/{session_id}": {
+      "get": {
+        "tags": [
+          "Chat & Tickets"
+        ],
+        "summary": "Ambil status dan jejak audit sesi aktif",
+        "description": "Mengambil informasi state sesi dan jejak keputusan audit.",
+        "operationId": "get_session_endpoint_api_session__session_id__get",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Get Session Endpoint Api Session  Session Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Health Check",
+        "description": "Pemeriksaan status kesehatan server dan backend API.",
+        "operationId": "health_check_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "title": "Response Health Check Api Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ChatRequest": {
+        "properties": {
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id",
+            "description": "ID sesi unik (UUID). Jika kosong, server membuat sesi baru."
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Message",
+            "description": "Pesan teks pengguna (maksimal 1000 karakter, Lapis 1 Input Guard)."
+          },
+          "confirmation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "berhasil",
+                  "belum",
+                  "minta_tiket"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confirmation",
+            "description": "Status konfirmasi langkah solusi (K3 & K4)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "ChatRequest",
+        "description": "Permintaan pesan chat dari pengguna."
+      },
+      "ChatResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id",
+            "description": "ID sesi aktif."
+          },
+          "tipe_respons": {
+            "type": "string",
+            "enum": [
+              "klarifikasi",
+              "langkah_solusi",
+              "tidak_ditemukan",
+              "draf_tiket",
+              "tiket_terkirim",
+              "selesai"
+            ],
+            "title": "Tipe Respons",
+            "description": "Jenis respons agen."
+          },
+          "pesan": {
+            "type": "string",
+            "title": "Pesan",
+            "description": "Teks polos pesan bantuan untuk pengguna tanpa markdown (K17 & \u00a76.5)."
+          },
+          "sumber": {
+            "items": {
+              "$ref": "#/components/schemas/SumberKutipan"
+            },
+            "type": "array",
+            "title": "Sumber",
+            "description": "Daftar kutipan sumber KB yang mendasari jawaban."
+          },
+          "langkah_saat_ini": {
+            "type": "integer",
+            "maximum": 4.0,
+            "minimum": 0.0,
+            "title": "Langkah Saat Ini",
+            "description": "Nomor urut langkah solusi yang sedang ditampilkan (1-4).",
+            "default": 0
+          },
+          "langkah_total_tersedia": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Langkah Total Tersedia",
+            "description": "Total langkah solusi yang tersedia di artikel terkait.",
+            "default": 0
+          },
+          "keyakinan": {
+            "type": "string",
+            "enum": [
+              "tinggi",
+              "sedang",
+              "rendah",
+              "tidak_dapat_ditentukan"
+            ],
+            "title": "Keyakinan",
+            "description": "Tingkat keyakinan retrieval yang dihitung oleh kode (K17 & \u00a76.4).",
+            "default": "sedang"
+          },
+          "memerlukan_konfirmasi": {
+            "type": "boolean",
+            "title": "Memerlukan Konfirmasi",
+            "description": "Menentukan apakah antarmuka pengguna perlu menampilkan tombol aksi.",
+            "default": true
+          },
+          "draf_tiket": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DraftTicket"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Objek draf tiket jika tipe_respons adalah draf_tiket."
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "tipe_respons",
+          "pesan"
+        ],
+        "title": "ChatResponse",
+        "description": "Respons API sistem ke pengguna (sumber kebenaran kontrak frontend)."
+      },
+      "DraftTicket": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "ID draf tiket unik (misal: TK-0042)."
+          },
+          "judul": {
+            "type": "string",
+            "title": "Judul",
+            "description": "Subjek singkat masalah IT."
+          },
+          "deskripsi": {
+            "type": "string",
+            "title": "Deskripsi",
+            "description": "Deskripsi rinci gejala masalah."
+          },
+          "langkah_dicoba": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Langkah Dicoba",
+            "description": "Daftar langkah yang sudah dicoba di sesi ini."
+          },
+          "prioritas": {
+            "type": "string",
+            "enum": [
+              "rendah",
+              "sedang",
+              "tinggi"
+            ],
+            "title": "Prioritas",
+            "description": "Prioritas tiket IT.",
+            "default": "sedang"
+          },
+          "kategori": {
+            "type": "string",
+            "enum": [
+              "jaringan",
+              "email",
+              "aplikasi",
+              "perangkat",
+              "lainnya"
+            ],
+            "title": "Kategori",
+            "description": "Kategori unit kerja IT.",
+            "default": "lainnya"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "judul",
+          "deskripsi"
+        ],
+        "title": "DraftTicket",
+        "description": "Draf tiket eskalasi teknisi (Lapis 3 & 5)."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "SumberKutipan": {
+        "properties": {
+          "article_id": {
+            "type": "string",
+            "title": "Article Id",
+            "description": "ID kanonik artikel (misal: KB-001)."
+          },
+          "section": {
+            "type": "string",
+            "title": "Section",
+            "description": "Bagian dokumen rujukan (misal: Bagian 3)."
+          },
+          "judul": {
+            "type": "string",
+            "title": "Judul",
+            "description": "Judul lengkap artikel dari database."
+          },
+          "kutipan": {
+            "type": "string",
+            "title": "Kutipan",
+            "description": "Cuplikan teks asli yang menjadi rujukan (K10)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "article_id",
+          "section",
+          "judul",
+          "kutipan"
+        ],
+        "title": "SumberKutipan",
+        "description": "Kutipan sumber dokumen knowledge base (Lapis 4 Output Guard)."
+      },
+      "TicketConfirmRequest": {
+        "properties": {
+          "ticket_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ticket Id",
+            "description": "ID tiket yang akan dikonfirmasi."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "confirm",
+              "cancel"
+            ],
+            "title": "Action",
+            "description": "'confirm' untuk mengirim tiket ke teknisi, 'cancel' untuk membatalkan."
+          },
+          "catatan": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Catatan",
+            "description": "Catatan tambahan opsional dari pengguna saat konfirmasi."
+          }
+        },
+        "type": "object",
+        "required": [
+          "action"
+        ],
+        "title": "TicketConfirmRequest",
+        "description": "Permintaan konfirmasi pengiriman draf tiket (Lapis 5 HITL via POST /api/ticket/confirm)."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

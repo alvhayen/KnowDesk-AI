@@ -1,0 +1,162 @@
+[
+  {
+    "id": "DEV-01",
+    "kategori_kueri": "relevan",
+    "kueri": "Sinyal nirkabel laptop mendadak putus nyambung di ruang rapat",
+    "target_article": "KB-001",
+    "deskripsi_tujuan": "Uji sinonim untuk masalah Wi-Fi (nirkabel, putus nyambung) ke KB-001",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-02",
+    "kategori_kueri": "relevan",
+    "kueri": "Lupa kata sandi surel kantor dan akun terblokir setelah salah ketik",
+    "target_article": "KB-002",
+    "deskripsi_tujuan": "Uji sinonim reset password email (surel, terblokir, kata sandi) ke KB-002",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-03",
+    "kategori_kueri": "relevan",
+    "kueri": "Tidak bisa tunneling akses jarak jauh dari rumah",
+    "target_article": "KB-003",
+    "deskripsi_tujuan": "Uji parafrase VPN (tunneling, akses jarak jauh) ke KB-003",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-04",
+    "kategori_kueri": "relevan",
+    "kueri": "Mesin cetak tidak merespons dan dokumen tertahan di antrean print spooler",
+    "target_article": "KB-004",
+    "deskripsi_tujuan": "Uji troubleshooting printer (mesin cetak, print spooler) ke KB-004",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-05",
+    "kategori_kueri": "relevan",
+    "kueri": "Panggilan rapat daring di aplikasi obrolan tidak mendeteksi mikrofon dan kamera",
+    "target_article": "KB-005",
+    "deskripsi_tujuan": "Uji masalah Teams/kolaborasi (rapat daring, aplikasi obrolan) ke KB-005",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-06",
+    "kategori_kueri": "relevan",
+    "kueri": "Muncul notifikasi izin ditolak saat ingin membuka folder arsip bersama di drive jaringan",
+    "target_article": "KB-006",
+    "deskripsi_tujuan": "Uji izin akses shared drive (folder arsip bersama, drive jaringan) ke KB-006",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-07",
+    "kategori_kueri": "relevan",
+    "kueri": "Kode verifikasi dua langkah tidak kunjung masuk ke ponsel saat login SSO",
+    "target_article": "KB-007",
+    "deskripsi_tujuan": "Uji 2FA (kode verifikasi dua langkah, ponsel) ke KB-007",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-08",
+    "kategori_kueri": "relevan",
+    "kueri": "Sistem FinOps akuntansi kantor memunculkan error session expired saat input transaksi",
+    "target_article": "KB-008",
+    "deskripsi_tujuan": "Uji ERP dengan terminologi varian (FinOps, akuntansi kantor, session expired) ke KB-008",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-09",
+    "kategori_kueri": "relevan",
+    "kueri": "Komputer mendapatkan alamat IP 169.254 saat terhubung ke access point lantai dua",
+    "target_article": "KB-001",
+    "deskripsi_tujuan": "Uji gejala APIPA / DHCP gagal pada koneksi Wi-Fi ke KB-001",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-10",
+    "kategori_kueri": "relevan",
+    "kueri": "Surel kantor di outlook menampilkan status disconnected dan tidak bisa kirim pesan",
+    "target_article": "KB-005",
+    "deskripsi_tujuan": "Uji masalah Outlook disconnected ke KB-005",
+    "harus_lolos_gerbang": true
+  },
+  {
+    "id": "DEV-11",
+    "kategori_kueri": "ambigu",
+    "kueri": "Komputer kantor saya bermasalah dan tidak bisa dipakai kerja",
+    "target_article": null,
+    "deskripsi_tujuan": "Kueri terlalu umum; butuh klarifikasi gejala",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-12",
+    "kategori_kueri": "ambigu",
+    "kueri": "Aplikasi mendadak error saat dibuka",
+    "target_article": null,
+    "deskripsi_tujuan": "Kueri ambigu; tidak menyebut nama aplikasi spesifik",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-13",
+    "kategori_kueri": "ambigu",
+    "kueri": "Ada kendala teknis di laptop saya",
+    "target_article": null,
+    "deskripsi_tujuan": "Kueri sangat umum tanpa konteks perangkat lunak/jaringan",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-14",
+    "kategori_kueri": "ambigu",
+    "kueri": "Sistem kantor tidak merespons sama sekali",
+    "target_article": null,
+    "deskripsi_tujuan": "Kueri umum tanpa indikasi sistem yang dimaksud",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-15",
+    "kategori_kueri": "ambigu",
+    "kueri": "Tolong bantu perbaiki perangkat kerja saya",
+    "target_article": null,
+    "deskripsi_tujuan": "Permintaan bantuan umum tanpa rincian persoalan",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-16",
+    "kategori_kueri": "out_of_scope",
+    "kueri": "Bagaimana prosedur klaim penggantian oli mobil dinas operasional kantor?",
+    "target_article": null,
+    "deskripsi_tujuan": "Di luar domain IT (fasilitas/umum); harus ditolak (tidak_ditemukan)",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-17",
+    "kategori_kueri": "out_of_scope",
+    "kueri": "Saya ingin memesan tiket pesawat dan hotel untuk perjalanan dinas ke Surabaya",
+    "target_article": null,
+    "deskripsi_tujuan": "Di luar domain IT (travel/GA); harus ditolak (tidak_ditemukan)",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-18",
+    "kategori_kueri": "out_of_scope",
+    "kueri": "Bagaimana cara pengajuan cuti tahunan dan izin sakit di portal HRD?",
+    "target_article": null,
+    "deskripsi_tujuan": "Di luar domain IT Helpdesk (kebijakan HR); harus ditolak",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-19",
+    "kategori_kueri": "out_of_scope",
+    "kueri": "Apakah ada rekomendasi catering makan siang yang higienis untuk rapat divisi?",
+    "target_article": null,
+    "deskripsi_tujuan": "Di luar domain IT (pantry/konsumsi); harus ditolak",
+    "harus_lolos_gerbang": false
+  },
+  {
+    "id": "DEV-20",
+    "kategori_kueri": "out_of_scope",
+    "kueri": "Berapa anggaran pengadaan meja kerja baru untuk divisi pemasaran?",
+    "target_article": null,
+    "deskripsi_tujuan": "Di luar domain IT (procurement/furniture); harus ditolak",
+    "harus_lolos_gerbang": false
+  }
+]
